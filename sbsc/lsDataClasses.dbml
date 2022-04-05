@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="new_dggy_ls" Class="lsDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sql2k8;Initial Catalog=new_dggy_ls;User ID=sa" SettingsObjectName="sbsc.Properties.Settings" SettingsPropertyName="new_dggy_lsConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.word" Member="word">
+    <Type Name="word">
+      <Column Name="user_code" Type="System.String" DbType="Char(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="user_name" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="user_pass" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.prod_dep" Member="prod_dep">
+    <Type Name="prod_dep">
+      <Column Name="prod_no" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_add" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="batch_no" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="lest_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Box_Num" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="avail_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="prod_det_prod_dep" Member="prod_det" ThisKey="prod_no,prod_add,batch_no" OtherKey="prod_no,prod_add,batch_no" Type="prod_det" IsForeignKey="true" />
+      <Association Name="product_prod_dep" Member="product" ThisKey="prod_no" OtherKey="prod_no" Type="product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dep_sub" Member="dep_sub">
+    <Type Name="dep_sub">
+      <Column Name="dep_no" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_no" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_add" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="batch_no" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="std_price" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="buy_price" Type="System.Decimal" DbType="Decimal(12,6) NOT NULL" CanBeNull="false" />
+      <Column Name="buy_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="dep_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="box_num" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="mon_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="mon_ret_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="mon_ok" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="mon_ok_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="this_mon_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="had_ret_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="dep_inv_no" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="avail_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="row_index" Type="System.Decimal" DbType="Decimal(16,0) NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="gjbsh_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="produce_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sh_num" Type="System.Decimal" DbType="Decimal(9,3)" CanBeNull="true" />
+      <Column Name="ysbz" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="ys_bhgsx" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ys_czcs" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="dep_main_dep_sub" Member="dep_main" ThisKey="dep_no" OtherKey="dep_no" Type="dep_main" IsForeignKey="true" />
+      <Association Name="product_dep_sub" Member="product" ThisKey="prod_no" OtherKey="prod_no" Type="product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.supply" Member="supply">
+    <Type Name="supply">
+      <Column Name="sup_no" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sup_name" Type="System.String" DbType="Char(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sup_area" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="sup_ass" Type="System.String" DbType="Char(60)" CanBeNull="true" />
+      <Column Name="sup_add" Type="System.String" DbType="Char(60)" CanBeNull="true" />
+      <Column Name="sup_tel" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="sup_bank" Type="System.String" DbType="Char(60)" CanBeNull="true" />
+      <Column Name="sup_count" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="sup_inv" Type="System.String" DbType="Char(16)" CanBeNull="true" />
+      <Column Name="sup_zip" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="sup_memo" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Association Name="supply_dep_main" Member="dep_main" ThisKey="sup_no" OtherKey="sup_no" Type="dep_main" />
+    </Type>
+  </Table>
+  <Table Name="dbo.prod_det" Member="prod_det">
+    <Type Name="prod_det">
+      <Column Name="prod_no" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_add" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="batch_no" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="stop" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="avail_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="stop_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="bz" Type="System.String" DbType="Char(100) NOT NULL" CanBeNull="false" />
+      <Column Name="std_price" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="buy_price" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Association Name="prod_det_prod_dep" Member="prod_dep" ThisKey="prod_no,prod_add,batch_no" OtherKey="prod_no,prod_add,batch_no" Type="prod_dep" Cardinality="One" />
+      <Association Name="product_prod_det" Member="product" ThisKey="prod_no" OtherKey="prod_no" Type="product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cur_ind" Member="cur_ind">
+    <Type Name="cur_ind">
+      <Column Name="cur_year" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cur_month" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cur_date" Type="System.Decimal" DbType="Decimal(2,0) NOT NULL" CanBeNull="false" />
+      <Column Name="user_code" Type="System.String" DbType="Char(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="list_ind" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="back_ind" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="dep_ind" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="ret_ind" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="dam_ind" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="add_ind" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="att_ind" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="rem_ind" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="pri_ind" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="attb_ind" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="outb_ind" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="gj_ind" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
+      <Column Name="upd_ind" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
+      <Column Name="err_ind" Type="System.Decimal" DbType="Decimal(5,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.err_main" Member="err_main">
+    <Type Name="err_main">
+      <Column Name="err_no" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="err_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="err_bywho" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="err_memo" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.err_sub" Member="err_sub">
+    <Type Name="err_sub">
+      <Column Name="err_no" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_no" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="batch_no" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_add" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="last_dep_no" Type="System.String" DbType="Char(1000)" CanBeNull="true" />
+      <Column Name="inv_num" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="dep_num" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="Char(1000)" CanBeNull="true" />
+      <Column Name="addition" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.upd_main" Member="upd_main">
+    <Type Name="upd_main">
+      <Column Name="upd_no" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="upd_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="upd_bywho" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="qx_bz" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="qx_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ny" Type="System.Decimal" DbType="Decimal(6,0)" CanBeNull="true" />
+      <Column Name="model" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dep_main" Member="dep_main">
+    <Type Name="dep_main">
+      <Column Name="dep_no" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sup_no" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="dep_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="dep_bywho" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="dep_mon" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="mon_ok" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="mon_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dep_memo" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="dep_visible" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="upload_bz" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="upload_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="bd_bz" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="by_add" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="dep_main_dep_sub" Member="dep_sub" ThisKey="dep_no" OtherKey="dep_no" Type="dep_sub" />
+      <Association Name="supply_dep_main" Member="supply" ThisKey="sup_no" OtherKey="sup_no" Type="supply" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sb_recipe_records" Member="sb_recipe_records">
+    <Type Name="sb_recipe_records">
+      <Column Name="id" Type="System.Decimal" DbType="Decimal(16,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="list_no" Type="System.String" DbType="Char(13)" CanBeNull="true" />
+      <Column Name="upload_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sfcf" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="sfsc" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sb_recipe_records_new" Member="sb_recipe_records_new">
+    <Type Name="sb_recipe_records_new">
+      <Column Name="list_no" Type="System.String" DbType="Char(13) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="upload_time" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sfcf" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="sfsc" Type="System.String" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.back_sub" Member="back_sub">
+    <Type Name="back_sub">
+      <Column Name="back_no" Type="System.String" DbType="Char(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_no" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_add" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="batch_no" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="back_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="std_price" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="inv_per" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="had_back_num" Type="System.Decimal" DbType="Decimal(9,3)" CanBeNull="true" />
+      <Column Name="inv_num" Type="System.Decimal" DbType="Decimal(9,3)" CanBeNull="true" />
+      <Column Name="sell_price" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="row_index" Type="System.Decimal" DbType="Decimal(16,0) NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pzjj" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="dljj" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Association Name="back_main_back_sub" Member="back_main" ThisKey="back_no" OtherKey="back_no" Type="back_main" IsForeignKey="true" />
+      <Association Name="product_back_sub" Member="product" ThisKey="prod_no" OtherKey="prod_no" Type="product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.back_main" Member="back_main">
+    <Type Name="back_main">
+      <Column Name="back_no" Type="System.String" DbType="Char(17) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="list_no" Type="System.String" DbType="Char(13) NOT NULL" CanBeNull="false" />
+      <Column Name="back_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="back_mon" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="mon_ok" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="mon_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="back_memo" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="back_bywho" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="ybcardno" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="ybback_mon" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="ybid" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="thyy" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Association Name="back_main_back_sub" Member="back_sub" ThisKey="back_no" OtherKey="back_no" Type="back_sub" />
+      <Association Name="inv_main_back_main" Member="inv_main" ThisKey="list_no" OtherKey="list_no" Type="inv_main" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_sub" Member="inv_sub">
+    <Type Name="inv_sub">
+      <Column Name="list_no" Type="System.String" DbType="Char(13) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_no" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_add" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="batch_no" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="inv_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="had_back_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="std_price" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="inv_per" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
+      <Column Name="sell_price" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="lest_num" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="avail_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="last_rebate" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="row_index" Type="System.Decimal" DbType="Decimal(16,0) NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="retail_price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="pd_bz" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="buy_price" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="pzjj" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="inv_recipe_xm" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="inv_recipe_lxfs" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="inv_recipe_sfr" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="inv_recipe_pfr" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="inv_recipe_bz" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="dljj" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="l_num_ok" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="inv_recipe_ys" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="sb_dep_no" Type="System.String" DbType="Char(16)" CanBeNull="true" />
+      <Column Name="sb_dep_num_old" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="sb_dep_num_new" Type="System.Decimal" DbType="Decimal(10,3)" CanBeNull="true" />
+      <Column Name="sb_depnomemo" Type="System.String" DbType="Char(1000)" CanBeNull="true" />
+      <Column Name="sb_depnoexpbz" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="sb_depnummemo" Type="System.String" DbType="Char(1000)" CanBeNull="true" />
+      <Column Name="SB_BZ1" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="SB_BZ2" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="SB_BZ3" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="SB_JX" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Association Name="inv_main_inv_sub" Member="inv_main" ThisKey="list_no" OtherKey="list_no" Type="inv_main" IsForeignKey="true" />
+      <Association Name="product_inv_sub" Member="product" ThisKey="prod_no" OtherKey="prod_no" Type="product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.upd_sub" Member="upd_sub">
+    <Type Name="upd_sub">
+      <Column Name="upd_no" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_no" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_name" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="dep_no" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_add" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="sup_name" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="dep_date" Type="System.String" DbType="Char(8)" CanBeNull="true" />
+      <Column Name="md_name" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="dep_num" Type="System.Decimal" DbType="Decimal(11,3)" CanBeNull="true" />
+      <Column Name="inv_num" Type="System.Decimal" DbType="Decimal(11,3)" CanBeNull="true" />
+      <Column Name="lest_num" Type="System.Decimal" DbType="Decimal(11,3)" CanBeNull="true" />
+      <Column Name="buy_price" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="jx" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="prod_size" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="BZ1" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="BZ2" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="BZ3" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="prod_name2" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="prod_made" Type="System.String" DbType="Char(64)" CanBeNull="true" />
+      <Column Name="mycount" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.client" Member="client">
+    <Type Name="client">
+      <Column Name="cli_no" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cli_name" Type="System.String" DbType="Char(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cli_ass" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="cli_add" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="cli_tel" Type="System.String" DbType="Char(25)" CanBeNull="true" />
+      <Column Name="cli_bank" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="cli_count" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="cli_inv" Type="System.String" DbType="Char(16)" CanBeNull="true" />
+      <Column Name="cli_zip" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="cli_per" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
+      <Column Name="cli_memo" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="client_type_no" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="dis_no" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="rebate_enable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="cli_id" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cli_card" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="cli_card_jf" Type="System.Decimal" DbType="Decimal(15,3)" CanBeNull="true" />
+      <Column Name="sb_card" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jf" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sex" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="xl" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="nl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sum_jf" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pr_jf" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cli_hy" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="cli_card_ok" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="cli_birthday" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="cli_com_zip" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="cli_ins_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="cli_card_memo" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="com_md_code" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="ins_com_md_code" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="upd_com_md_code" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="ins_cli_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="upd_cli_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="com_area_code" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="cli_card_sl_old" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="cli_nl_month" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cli_sbcardno" Type="System.String" DbType="Char(12)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.company" Member="company">
+    <Type Name="company">
+      <Column Name="com_name" Type="System.String" DbType="Char(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="com_add" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="com_tel" Type="System.String" DbType="Char(25)" CanBeNull="true" />
+      <Column Name="com_fax" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="account" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="com_bank" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="com_zip" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="com_sh" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="beg_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ver" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="l_num_cs" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="xxy_bz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="init_mon" Type="System.Decimal" DbType="Decimal(9,3) NOT NULL" CanBeNull="false" />
+      <Column Name="l_num_cs2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="l_num_cs3" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="jxq_cs" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pj_wait_time" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="com_jc" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="sb_id" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="backup_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="checkdb_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SBDIR" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="sell_per_sb" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="print_memo" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="inv_bywho_ok" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="inv_jxq_cs" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="com_db_id" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="cli_card_ul" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="pf_server" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="pf_database" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pf_pw" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="max_num_date" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ybidentifycode" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="ybun" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="ybpassword" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="ybstorename" Type="System.String" DbType="Char(65)" CanBeNull="true" />
+      <Column Name="password2" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="sl_model" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="com_zip_print" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="com_name_print" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="pf_inv_ok" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="hyxt_ver" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="com_md_code" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="com_md_pw" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="upcom_ok" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="upcom_ip" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sb_md_bz" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="sb_yybh" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="sb_pwd" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="sb_jbr" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="sb_jbrlx" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="sb_clienttype" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="sb_rememberme" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="sb_ssh" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="sb_tzssh" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="sb_zdbh" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="sb_tzzdbh" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="sb_yptjrxm" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="sb_yptjrsfys" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="sb_yptjryslx" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="ybzyfs" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="sb_ypshrxm" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="sb_ypshrsfys" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="sb_ypshryslx" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="sb_ghdw" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="sb_ver" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="use_resize2" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="produce_date_ok" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="sb_ypcffhxm" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="sb_model" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="com_jc2" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="print_add" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="com_kc1_date" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="com_kc1_date2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="qjwmedshopcode" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="qjwmedshopname" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="qjwcounterno" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="qjwcountername" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="qjwprovince" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="qjwcity" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="qjwcounty" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="printusercode" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="ylbusewin7method" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="allowsellpricegreatbuyprice" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ylb_store_stoken" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="sb_useaddionalpos" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.inv_main" Member="inv_main">
+    <Type Name="inv_main">
+      <Column Name="list_no" Type="System.String" DbType="Char(13) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cli_no" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="cli_name" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="inv_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="inv_mon" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="inv_bywho" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="mon_ok" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Car_Man" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="car" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="sen_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="yesno" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="mon_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="inv_memo" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="inv_visible" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="inv_pj" Type="System.Char" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="inv_pj_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SDYWH" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="ZXBH" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="ZYZJE" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="SBZFJE" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="GWYBZJE" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="GRZFJE" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="TDMZYE" Type="System.Decimal" DbType="Decimal(12,2)" CanBeNull="true" />
+      <Column Name="ZFYY" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="JZLB" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ybcardno" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="ybid" Type="System.String" DbType="Char(32)" CanBeNull="true" />
+      <Column Name="ybpay_mon" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="ybbalance" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="fh_bywho" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="clqs_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sbxp_jysj" Type="System.String" DbType="Char(14)" CanBeNull="true" />
+      <Column Name="sbxp_no" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="SBWLSH" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="upload_bz" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="upload_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="refund_bz" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="refund_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sbcfbz" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="sbcf_bh" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="sbcfkjjgmc" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="sbcfjgsfjggz" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="sbcfrq" Type="System.Decimal" DbType="Decimal(8,0)" CanBeNull="true" />
+      <Column Name="sbcfzd" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="sbcfysxm" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="JKSCBZ" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="JKSCSZ" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sbzdbh" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="sbxslx" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="sb_ssh" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="inv_ins_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="inv_emp" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="sb_xj_zhifu" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="sb_ka_zhifu" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="price3_bz" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="all_mon_act" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="inv_guid" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="inv_jishu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="is_sb_new" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="inv_upcom_ok" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="inv_ds" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pay_xj" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="pay_sb" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="pay_yl" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="pay_yb" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="pay_wx" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="auto_recipe" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="rx_no" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="cli_id" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cli_card" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="cli_tel" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="cli_sex" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="cli_add" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cli_nl" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="recipe_ys" Type="System.String" DbType="Char(12)" CanBeNull="true" />
+      <Column Name="recipe_sfr" Type="System.String" DbType="Char(12)" CanBeNull="true" />
+      <Column Name="recipe_pfr" Type="System.String" DbType="Char(12)" CanBeNull="true" />
+      <Column Name="recipe_bz" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="recipe_yy" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="recipe_blh" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="recipe_cli_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cli_nl_month" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cf_bz_st" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="nopoint_bz" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="theimportdbf" Type="System.String" DbType="Char(300)" CanBeNull="true" />
+      <Column Name="sb_cli_no" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="sb_cli_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="sb_cli_id" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="list_no_relatetoffer" Type="System.String" DbType="Char(13)" CanBeNull="true" />
+      <Column Name="mon_withoutoffer" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="mon_withoffer" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="mon_withoffer_95per" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="ylb_store_token" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="ylb_bz" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="ylb_pay_code" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="qjwserialno" Type="System.String" DbType="Char(42)" CanBeNull="true" />
+      <Column Name="qjwbatchno" Type="System.String" DbType="Char(35)" CanBeNull="true" />
+      <Column Name="qjwcardno" Type="System.String" DbType="Char(25)" CanBeNull="true" />
+      <Column Name="qjwretmsg" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="qjwclmmoney" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="qjwrestmoney" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="qjwbz" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="sb_sc_recipe" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="SB_BZ1" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="SB_BZ2" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="SB_BZ3" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="SB_CFBZ1" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="SB_CFBZ2" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="SB_CFBZ3" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="cli_sbcardno" Type="System.String" DbType="Char(12)" CanBeNull="true" />
+      <Column Name="sb_cli_sbcardno" Type="System.String" DbType="Char(12)" CanBeNull="true" />
+      <Column Name="updSFZHM" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="sb_tzscjk" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="sb_uploadchooseidsbcard" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="inv_main_back_main" Member="back_main" ThisKey="list_no" OtherKey="list_no" Type="back_main" />
+      <Association Name="inv_main_inv_sub" Member="inv_sub" ThisKey="list_no" OtherKey="list_no" Type="inv_sub" />
+    </Type>
+  </Table>
+  <Table Name="dbo.product" Member="product">
+    <Type Name="product">
+      <Column Name="prod_no" Type="System.String" DbType="Char(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prod_name" Type="System.String" DbType="Char(50) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_size" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="monad" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="box_num" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="dep_pos" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="ware_no" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="recipe" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="sell_stop" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="retail_price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="std_price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="Cuntry_Price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="corp_price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="buy_price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="dep_no" Type="System.String" DbType="Char(16)" CanBeNull="true" />
+      <Column Name="dep_price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="limit_num" Type="System.Decimal" DbType="Decimal(9,3)" CanBeNull="true" />
+      <Column Name="up_num" Type="System.Decimal" DbType="Decimal(9,3)" CanBeNull="true" />
+      <Column Name="per_memo" Type="System.String" DbType="Char(18)" CanBeNull="true" />
+      <Column Name="limit_price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="prod_memo" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="last_add" Type="System.String" DbType="Char(12) NOT NULL" CanBeNull="false" />
+      <Column Name="std_per" Type="System.Decimal" DbType="Decimal(8,3)" CanBeNull="true" />
+      <Column Name="prod_dx" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="prod_made" Type="System.String" DbType="Char(64)" CanBeNull="true" />
+      <Column Name="prod_label" Type="System.String" DbType="Char(16)" CanBeNull="true" />
+      <Column Name="prod_pzwh" Type="System.String" DbType="Char(64)" CanBeNull="true" />
+      <Column Name="box_midnum" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="bar_code" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="yes" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="zjm" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="jsypbz" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="pzjj" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="auto_dep_bz" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="dlpz_bz" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="ware_no_pf" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="prod_bth" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="dljj" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="st_type" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_fl1" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_fl2" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_fl3" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="inv_per_ok" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="cl_price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="xsxz" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_otc" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="prod_pz" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="qx_psbz" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="tich_mon" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="prod_per" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bjp_bz" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_gz" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_hmpz" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_hmyp" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="buy_price_pf" Type="System.Decimal" DbType="Decimal(12,6) NOT NULL" CanBeNull="false" />
+      <Column Name="zyps_bm" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="prod_price_hyj" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="prod_gsp_lx" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="prod_gsp_num" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="max_num_ok" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_lc_ok" Type="System.Char" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="prod_lc_num" Type="System.Decimal" DbType="Decimal(9,3)" CanBeNull="true" />
+      <Column Name="hy_price" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="prod_gsp_jx" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="prod_gsp_cctj" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="prod_del" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="limit_num_gj" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="box_midnum_md" Type="System.Decimal" DbType="Decimal(12,3)" CanBeNull="true" />
+      <Column Name="prod_name_bm" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="prod_ypgx" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="prod_yjbm" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ylqx_no" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="cfy_lx" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="sb_notappro2sell" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="prod_lx" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="noffer" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="sb_sortof" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="dosages" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="st_mark" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="list_corp_holder" Type="System.String" DbType="Char(200)" CanBeNull="true" />
+      <Column Name="tz_bzgg" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tz_jldw" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="tz_zfbz" Type="System.Decimal" DbType="Decimal(12,4)" CanBeNull="true" />
+      <Column Name="prod_gsp_type" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="sb_sc_bz" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="product_prod_dep" Member="prod_dep" ThisKey="prod_no" OtherKey="prod_no" Type="prod_dep" />
+      <Association Name="product_dep_sub" Member="dep_sub" ThisKey="prod_no" OtherKey="prod_no" Type="dep_sub" />
+      <Association Name="product_prod_det" Member="prod_det" ThisKey="prod_no" OtherKey="prod_no" Type="prod_det" />
+      <Association Name="product_back_sub" Member="back_sub" ThisKey="prod_no" OtherKey="prod_no" Type="back_sub" />
+      <Association Name="product_inv_sub" Member="inv_sub" ThisKey="prod_no" OtherKey="prod_no" Type="inv_sub" />
+    </Type>
+  </Table>
+  <Function Name="dbo.cal_month_dep_fast" Method="cal_month_dep_fast">
+    <Parameter Name="begdt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="endt" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cal_month_dep_acm" Method="cal_month_dep_acm">
+    <Parameter Name="begdt" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="endt" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

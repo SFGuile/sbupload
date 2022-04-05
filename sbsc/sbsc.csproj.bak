@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{32FE2145-FB6C-408E-9893-05070DF586F6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sbsc</RootNamespace>
+    <AssemblyName>sbsc</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataWindow, Version=2.5.0.0, Culture=neutral, PublicKeyToken=cc0f66dd9541b3da, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Program Files\Sybase\DataWindow .NET 2.5\DataWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Changepass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Changepass.Designer.cs">
+      <DependentUpon>Changepass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconForm.Designer.cs">
+      <DependentUpon>IconForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IndividalChargeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IndividalChargeForm.Designer.cs">
+      <DependentUpon>IndividalChargeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginAgainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginAgainForm.Designer.cs">
+      <DependentUpon>LoginAgainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lsDataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>lsDataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\IndividalChargeModel.cs" />
+    <Compile Include="InputListnoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputListnoForm.Designer.cs">
+      <DependentUpon>InputListnoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\loginModel.cs" />
+    <Compile Include="Model\globalvariable.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\changepassModel.cs" />
+    <Compile Include="Model\RefundInvdial.cs" />
+    <Compile Include="Model\RegistModel.cs" />
+    <Compile Include="Model\RemoveUploadinvdepModel.cs" />
+    <Compile Include="Model\serverreturnvalue.cs" />
+    <Compile Include="Model\UploadInvDepModel.cs" />
+    <Compile Include="MyProc_Result.cs" />
+    <Compile Include="OptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionForm.Designer.cs">
+      <DependentUpon>OptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Changepass.resx">
+      <DependentUpon>Changepass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IconForm.resx">
+      <DependentUpon>IconForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IndividalChargeForm.resx">
+      <DependentUpon>IndividalChargeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogForm.resx">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginAgainForm.resx">
+      <DependentUpon>LoginAgainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lsDataClasses.dbml.layout">
+      <DependentUpon>lsDataClasses.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputListnoForm.resx">
+      <DependentUpon>InputListnoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionForm.resx">
+      <DependentUpon>OptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RefundForm.resx">
+      <DependentUpon>RefundForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistForm.resx">
+      <DependentUpon>RegistForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SummaryUploadForm.resx">
+      <DependentUpon>SummaryUploadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadDepForm.resx">
+      <DependentUpon>UploadDepForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UploadRecordForm.resx">
+      <DependentUpon>UploadRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="warningForm.resx">
+      <DependentUpon>warningForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="lsDataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>lsDataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RefundForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RefundForm.Designer.cs">
+      <DependentUpon>RefundForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistForm.Designer.cs">
+      <DependentUpon>RegistForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SummaryUploadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SummaryUploadForm.Designer.cs">
+      <DependentUpon>SummaryUploadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UploadDepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadDepForm.Designer.cs">
+      <DependentUpon>UploadDepForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UploadRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UploadRecordForm.Designer.cs">
+      <DependentUpon>UploadRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="warningForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="warningForm.Designer.cs">
+      <DependentUpon>warningForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\servicelogin\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\serviceprocess\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="filesdown.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="filesupload.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="exit.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="checkerror.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\mainchangepass.jpeg" />
+    <None Include="images\maindelete.jpeg" />
+    <None Include="images\mainmoneyback.jpeg" />
+    <None Include="images\mainstatisct.jpg" />
+    <None Include="images\mainpaymoney.jpg" />
+    <None Include="images\mainregister.jpeg" />
+    <None Include="Web References\servicelogin\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\servicelogin\webServiceLogin.wsdl" />
+    <None Include="Web References\serviceprocess\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\serviceprocess\WebserviceFacade.wsdl" />
+    <Content Include="icon.ico" />
+    <Content Include="mainchangepass.jpeg" />
+    <Content Include="maindelete.jpeg" />
+    <Content Include="mainmoneyback.jpeg" />
+    <Content Include="mainpaymoney.jpg" />
+    <Content Include="mainregister.jpeg" />
+    <Content Include="mainstatisct.jpg" />
+    <Content Include="sbsc.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.102.188/web/services/WebserviceFacade%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\serviceprocess\</RelPath>
+      <UpdateFromURL>http://192.168.102.188/web/services/WebserviceFacade%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>sbsc_serviceprocess_WebserviceFacade</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://192.168.102.188/web/services/webServiceLogin%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\servicelogin\</RelPath>
+      <UpdateFromURL>http://192.168.102.188/web/services/webServiceLogin%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>sbsc_servicelogin_webServiceLogin</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

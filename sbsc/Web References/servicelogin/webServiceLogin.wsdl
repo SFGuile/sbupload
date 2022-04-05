@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns="http://webservice.service.hisframework.sinobest.cn" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://webservice.service.hisframework.sinobest.cn" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>webServiceLogin</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://webservice.service.hisframework.sinobest.cn">
+      <xs:element name="webServiceLoginException">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="webServiceLoginException" nillable="true" type="ns:Exception" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="login">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="instr" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="loginRequest">
+    <wsdl:part name="parameters" element="ns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part name="parameters" element="ns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="webServiceLoginException">
+    <wsdl:part name="parameters" element="ns:webServiceLoginException" />
+  </wsdl:message>
+  <wsdl:portType name="webServiceLoginPortType">
+    <wsdl:operation name="login">
+      <wsdl:input wsaw:Action="urn:login" message="ns:loginRequest" />
+      <wsdl:output wsaw:Action="urn:loginResponse" message="ns:loginResponse" />
+      <wsdl:fault wsaw:Action="urn:loginwebServiceLoginException" name="webServiceLoginException" message="ns:webServiceLoginException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="webServiceLoginSoap11Binding" type="ns:webServiceLoginPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap:operation soapAction="urn:login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="webServiceLoginException">
+        <soap:fault use="literal" name="webServiceLoginException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="webServiceLoginSoap12Binding" type="ns:webServiceLoginPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="login">
+      <soap12:operation soapAction="urn:login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="webServiceLoginException">
+        <soap12:fault use="literal" name="webServiceLoginException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="webServiceLoginHttpBinding" type="ns:webServiceLoginPortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="login">
+      <http:operation location="login" />
+      <wsdl:input>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="webServiceLogin">
+    <wsdl:port name="webServiceLoginHttpSoap11Endpoint" binding="ns:webServiceLoginSoap11Binding">
+      <soap:address location="http://192.168.102.188/web/services/webServiceLogin.webServiceLoginHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="webServiceLoginHttpSoap12Endpoint" binding="ns:webServiceLoginSoap12Binding">
+      <soap12:address location="http://192.168.102.188/web/services/webServiceLogin.webServiceLoginHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="webServiceLoginHttpEndpoint" binding="ns:webServiceLoginHttpBinding">
+      <http:address location="http://192.168.102.188/web/services/webServiceLogin.webServiceLoginHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
